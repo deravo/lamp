@@ -1,3 +1,6 @@
+It's a testing dockerfile, not for production deployment
+-----
+
 tutum-docker-lamp
 =================
 
