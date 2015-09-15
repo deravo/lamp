@@ -1,5 +1,5 @@
 lamp:
-  image: tutum/lamp
+  image: deravo/lamp
   ports:
     - 80:80
     - 3306:3306
