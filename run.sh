@@ -29,12 +29,14 @@ if [ ! -f /.mysql_setup ]; then
     /setup_mysql.sh
 fi
 
-/hiredis.sh
+if [ ! -f /.hiredis ]; then
+    /hiredis.sh
+fi
 
-source /etc/apache2/envvars
+# source /etc/apache2/envvars
 # exec apache2 -D FOREGROUND
-exec apache2ctl start
-exec /usr/sbin/sshd -D
-exec mysqld_safe
+# exec apache2ctl start
+# exec mysqld_safe
 
+exec /usr/sbin/sshd -D
 exec supervisord -n

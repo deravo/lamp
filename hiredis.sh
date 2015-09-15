@@ -1,10 +1,12 @@
 #!/bin/bash
 
+export PATH=/user/bin:/usr/sbin:$PATH
+
 cd /root 
 wget https://github.com/redis/hiredis/archive/master.zip
 mv ./master.zip ./hiredis.zip
 unzip ./hiredis.zip 
-cd ./hiredis-master 
+cd ./hiredis-master
 make && make install
 
 cd /root
@@ -16,3 +18,5 @@ phpize
 ./configure --enable-phpiredis --with-hiredis-dir=/usr/local
 make && make install
 echo "extension=phpiredis.so" > /etc/php5/mods-available/redis.ini
+
+touch /.hiredis
