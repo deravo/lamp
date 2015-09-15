@@ -15,7 +15,6 @@ RUN apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-
 
 # Install MySQL
 RUN apt-get -yq install mysql-server-5.6 && \
-    rm /etc/mysql/conf.d/mysqld_safe_syslog.cnf && \
     if [ ! -f /usr/share/mysql/my-default.cnf ] ; then cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf; fi
 
 # Install Apache & PHP5 packages
