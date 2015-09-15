@@ -1,6 +1,6 @@
 lamp:
-  image: deravo/lamp
+  image: deravo/lamp:latest
   ports:
     - 80:80
-    - 3306:3306
-    - 22:22
+    - 13306:3306
+    - 10080:22
