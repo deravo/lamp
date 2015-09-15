@@ -11,7 +11,7 @@ ADD sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y perl ca-certificates curl libpcre3 librecode0 libsqlite3-0 libxml2 zip pwgen --no-install-recommends
 
 # Install phpize deps
-RUN apt-get apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-install-recommends
+RUN apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-install-recommends
 
 # Install MySQL
 RUN apt-get -yq install mysql-server-5.6 && \
