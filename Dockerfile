@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD sources.list /etc/apt/sources.list
 
 # Install packages
-RUN apt-get update && apt-get -y install openssh-server pwgen vim
+RUN apt-get update && apt-get -y install openssh-server pwgen vim net-tools
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 # copy set root password script
