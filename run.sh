@@ -20,17 +20,17 @@ if [ "${AUTHORIZED_KEYS}" != "**None**" ]; then
     done
 fi
 
+if [ ! -f /.hiredis ]; then
+    /hiredis.sh
+fi
+
 if [ ! -f /.root_pw_set ]; then
-	/set_root_pw.sh
+    /set_root_pw.sh
 fi
 
 
 if [ ! -f /.mysql_setup ]; then
     /setup_mysql.sh
-fi
-
-if [ ! -f /.hiredis ]; then
-    /hiredis.sh
 fi
 
 # source /etc/apache2/envvars

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f /.mysql_setup ]; then
+    echo "MySQL already set!"
+    exit 0
+fi
 set -m
 set -e
 

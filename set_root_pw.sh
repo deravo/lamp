@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ -f /.root_pw_set ]; then
 	echo "Root password already set!"
 	exit 0
@@ -21,3 +22,4 @@ echo "and enter the root password '$PASS' when prompted"
 echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "========================================================================"
+
