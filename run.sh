@@ -38,5 +38,8 @@ fi
 # exec apache2ctl start
 # exec mysqld_safe
 
-/usr/sbin/sshd -D
+/etc/init.d/apache2 restart
+/etc/init.d/ssh restart
+/etc/init.d/mysql restart
+
 exec supervisord -n
