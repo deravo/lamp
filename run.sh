@@ -28,4 +28,6 @@ rm -fr /var/lib/apt/lists/*
 /etc/init.d/mysql stop
 /etc/init.d/apache2 stop
 
-exec supervisord -n
+exec supervisord -n &
+
+

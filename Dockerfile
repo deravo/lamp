@@ -20,9 +20,9 @@ RUN apt-get -yq install mysql-server-5.6 mysql-client-5.6
 RUN apt-get -y install supervisor git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php-apc php5-redis php5-mcrypt php5-apcu php5-gd php5-mcrypt php5-memcached php5-sqlite php5-common php5-dev && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# Add scripts
-# Install phpiredis Extension
+# ADD scripts
 ADD hiredis.sh /hiredis.sh
+
 ADD set_root_pw.sh /set_root_pw.sh
 ADD start-apache2.sh /start-apache2.sh
 ADD start-mysqld.sh /start-mysqld.sh
@@ -37,6 +37,9 @@ ADD my.cnf /etc/mysql/conf.d/my.cnf
 
 ADD apache_default /etc/apache2/sites-available/000-default.conf
 
+# Remove pre-installed database
+RUN rm -rf /var/lib/mysql/*
+
 RUN chmod +x /*.sh
 
 RUN a2enmod rewrite
@@ -50,8 +53,8 @@ ENV PHP_UPLOAD_MAX_FILESIZE 10M
 ENV PHP_POST_MAX_SIZE 10M
 ENV AUTHORIZED_KEYS **None**
 
-# Add volumes 
-# VOLUME  ["/etc/mysql", "/var/lib/mysql", "/app" ]
+# ADD Volumes
+VOLUME ["/etc/mysql","/var/lib/mysql","/app"]
 
 EXPOSE 22 80 3306
 
