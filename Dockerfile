@@ -42,8 +42,8 @@ RUN chmod +x /*.sh
 RUN a2enmod rewrite
 
 # Configure /app folder with sample app
-RUN git clone https://github.com/fermayo/hello-world-lamp.git /app
-RUN mkdir dir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+RUN git clone https://github.com/fermayo/hello-world-lamp.git /app/welcome
+RUN mkdir dir -p /app && rm -fr /var/www && ln -s /app /var/www
 
 #Enviornment variables to configure php
 ENV PHP_UPLOAD_MAX_FILESIZE 10M
