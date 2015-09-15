@@ -38,5 +38,5 @@ fi
 # exec apache2ctl start
 # exec mysqld_safe
 
-exec /usr/sbin/sshd -D
+/usr/sbin/sshd -D
 exec supervisord -n
