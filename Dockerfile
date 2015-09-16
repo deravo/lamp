@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD sources.list /etc/apt/sources.list
 
 # Install packages
-RUN apt-get update && apt-get -y install openssh-server pwgen vim net-tools
+RUN apt-get update && apt-get -y install openssh-server pwgen vim net-tools apt-utils
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 # Install Runtime deps
@@ -36,6 +36,9 @@ ADD supervisord-mysqld.conf /etc/supervisor/conf.d/supervisord-mysqld.conf
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 
 ADD apache_default /etc/apache2/sites-available/000-default.conf
+
+ADD hiredis.zip /root/hiredis.zip
+ADD phpiredis.zip /root/phpiredis.zip
 
 # Remove pre-installed database
 RUN rm -rf /var/lib/mysql/*
