@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sed -ri -e "s/^bind\-address.*/# bind\-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
+
 /usr/bin/mysqld_safe > /dev/null 2>&1 &
 
 RET=1
@@ -28,7 +30,4 @@ echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "MySQL user 'root' has no password but only allows local connections"
 echo "========================================================================"
-
-mysqladmin -uroot shutdown
-
 

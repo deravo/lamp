@@ -17,21 +17,16 @@ RUN apt-get install -y perl ca-certificates curl libpcre3 librecode0 libsqlite3-
 RUN apt-get -yq install mysql-server-5.6 mysql-client-5.6
 
 # Install Apache & PHP5 packages
-RUN apt-get -y install supervisor git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php-apc php5-apcu php5-curl php5-redis php5-mcrypt php5-apcu php5-gd php5-mcrypt php5-memcached php5-sqlite php5-common php5-dev && \
+RUN apt-get -y install git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php-apc php5-apcu php5-curl php5-redis php5-mcrypt php5-apcu php5-gd php5-mcrypt php5-memcached php5-sqlite php5-common php5-dev && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # ADD scripts
 ADD hiredis.sh /hiredis.sh
 
 ADD set_root_pw.sh /set_root_pw.sh
-ADD start-apache2.sh /start-apache2.sh
-ADD start-mysqld.sh /start-mysqld.sh
 ADD create_mysql_admin_user.sh /create_mysql_admin_user.sh
 
 ADD run.sh /run.sh
-
-ADD supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
-ADD supervisord-mysqld.conf /etc/supervisor/conf.d/supervisord-mysqld.conf
 
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 
@@ -62,3 +57,5 @@ VOLUME ["/etc/mysql","/var/lib/mysql","/app"]
 EXPOSE 22 80 3306
 
 CMD ["/run.sh"]
+
+
