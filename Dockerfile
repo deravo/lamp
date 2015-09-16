@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD sources.list /etc/apt/sources.list
 
 # Install packages
-RUN apt-get update && apt-get -y install openssh-server pwgen vim net-tools apt-utils
+RUN apt-get update && apt-get -y install openssh-server pwgen vim net-tools apt-utils dialog
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 # Install Runtime deps
@@ -17,7 +17,7 @@ RUN apt-get install -y perl ca-certificates curl libpcre3 librecode0 libsqlite3-
 RUN apt-get -yq install mysql-server-5.6 mysql-client-5.6
 
 # Install Apache & PHP5 packages
-RUN apt-get -y install supervisor git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php-apc php5-redis php5-mcrypt php5-apcu php5-gd php5-mcrypt php5-memcached php5-sqlite php5-common php5-dev && \
+RUN apt-get -y install supervisor git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php-apc php5-apcu php5-curl php5-redis php5-mcrypt php5-apcu php5-gd php5-mcrypt php5-memcached php5-sqlite php5-common php5-dev && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # ADD scripts
