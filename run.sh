@@ -25,9 +25,7 @@ fi
 rm -fr /var/lib/apt/lists/*
 
 /etc/init.d/ssh start
-/etc/init.d/mysql stop
-/etc/init.d/apache2 stop
+/etc/init.d/mysql restart
+/etc/init.d/apache2 restart
 
-exec supervisord -n &
-
-
+exec supervisord -n
