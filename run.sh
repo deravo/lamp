@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ ! -f /.hiredis ]; then
-    /hiredis.sh
-fi
+# if [ ! -f /.hiredis ]; then
+#     /hiredis.sh
+# fi
 
 VOLUME_HOME="/var/lib/mysql"
 
@@ -23,7 +23,7 @@ if [ ! -f /.root_pw_set ]; then
     /set_root_pw.sh
 fi
 
-rm -fr /var/lib/apt/lists/*
+# rm -fr /var/lib/apt/lists/*
 
 exec /usr/sbin/sshd -D
 
