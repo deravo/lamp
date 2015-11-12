@@ -48,7 +48,7 @@ RUN /etc/init.d/memcached start
 RUN /etc/init.d/redis-server start
 # Configure /app folder with sample app
 # RUN git clone https://github.com/fermayo/hello-world-lamp.git /app/welcome
-RUN mkdir dir -p /app && rm -fr /var/www && ln -s /app /var/www
+RUN mkdir dir -p /app/welcome && rm -fr /var/www && ln -s /app /var/www
 
 #Enviornment variables to configure php
 # ENV PHP_UPLOAD_MAX_FILESIZE 10M
