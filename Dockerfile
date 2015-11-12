@@ -17,7 +17,7 @@ RUN apt-get install -y perl ca-certificates curl libpcre3 librecode0 libsqlite3-
 RUN apt-get -yq install mysql-server-5.6 mysql-client-5.6
 
 # Install Apache & PHP5 packages
-RUN apt-get -y install git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php5-apcu php5-curl php5-redis php5-mcrypt php5-gd php5-mcrypt php5-memcached php5-sqlite && \
+RUN apt-get -y install git subversion apache2 mysql-client libapache2-mod-php5 php5-mysql php5-apcu php5-curl php5-redis php5-mcrypt php5-gd php5-mcrypt php5-memcached php5-sqlite \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
