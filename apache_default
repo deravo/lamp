@@ -2,10 +2,6 @@
         ServerAdmin webmaster@localhost
 
         DocumentRoot /var/www/welcome
-        <Directory />
-                Options FollowSymLinks
-                AllowOverride None
-        </Directory>
         <Directory /var/www/welcome>
                 Options Indexes FollowSymLinks MultiViews
                 # To make wordpress .htaccess work
