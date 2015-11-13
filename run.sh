@@ -25,5 +25,10 @@ fi
 
 # rm -fr /var/lib/apt/lists/*
 
+
+/etc/init.d/memcached start
+/etc/init.d/redis-server start
+apache2ctl restart
+
 exec /usr/sbin/sshd -D
 
